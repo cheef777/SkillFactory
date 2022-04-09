@@ -1,0 +1,7 @@
+train: ../yolov5/dataset/train/ 
+   
+val: ../yolov5/dataset/valid/
+   
+
+nc: 20 # количество классов
+names: ['aeroplane', 'bicycle', 'bird', 'boat', 'bottle', 'bus', 'car', 'cat', 'chair', 'cow', 'diningtable', 'dog', 'horse', 'motorbike', 'person', 'pottedplant', 'sheep', 'sofa', 'train', 'tvmonitor'] # имена классов
