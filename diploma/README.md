@@ -44,7 +44,7 @@ Keypoint RCNN имеет готовую реализацию в обёртке P
 <br>
 
 
-<video src='\images\video_out.avi' width=180/>
+<video src='\images\video_out.avi' width=180/></video>
 
 
 ### Что можно улучшить?
