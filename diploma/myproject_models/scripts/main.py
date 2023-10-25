@@ -1,12 +1,14 @@
 import torch
 import torchvision
 import torchvision.transforms as T
-import matplotlib.pyplot as plt
 import numpy as np
 import cv2
-import math
 from torchvision.utils import draw_bounding_boxes, draw_keypoints
 import torch.nn.functional as F
+
+PATH_IMAGE_TRUE = "/content/output_video.avi"
+PATH_IMAGE_TRAIN = "/content/lena1.mp4"
+PATH_IMAGE_OUT = 'video_out.avi'
 
 class Model:
   def nn_model(self):
@@ -144,8 +146,8 @@ if __name__ == '__main__':
     model = m.nn_model()
 
     count = 1
-    videoFile1 = "/content/output_video.avi"
-    videoFile2 = "/content/lena1.mp4"
+    videoFile1 = PATH_IMAGE_TRUE
+    videoFile2 = PATH_IMAGE_TRAIN
     cap1 = cv2.VideoCapture(videoFile1)   # загрузка видео
     cap2 = cv2.VideoCapture(videoFile2)
     frameRate1 = cap1.get(5) # частота кадров
@@ -204,7 +206,7 @@ if __name__ == '__main__':
     cap2.release()
 
     frameSize = (1280, 720)
-    out = cv2.VideoWriter('video_out.avi',cv2.VideoWriter_fourcc(*'DIVX'), frameRate, frameSize)
+    out = cv2.VideoWriter(PATH_IMAGE_OUT, cv2.VideoWriter_fourcc(*'DIVX'), frameRate, frameSize)
     for i in range(1, count):
         img = cv2.imread("video_out/frame%d.jpg" % i)
         resized = cv2.resize(img, frameSize, interpolation = cv2.INTER_AREA)
